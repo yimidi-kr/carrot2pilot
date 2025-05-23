@@ -215,7 +215,9 @@ class CarInterface(CarInterfaceBase):
 
     elif candidate == CAR.CADILLAC_CT6_ACC:
       ret.steerActuatorDelay = 0.2
-      CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)      
+      ret.minEnableSpeed = -1.  # engage speed is decided by pcm
+      CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning) 
+      
       #ret.steerActuatorDelay = 0.3
       #ret.longitudinalTuning.kpBP = [0.]
       #ret.longitudinalTuning.kpV = [1.0]
@@ -226,7 +228,6 @@ class CarInterface(CarInterfaceBase):
       #ret.stopAccel = -0.5
       #ret.startingState = True
       #ret.startAccel = 1.5
-
       #useTorque = Params().get_bool("LateralTorqueCustom")
       #if useTorque:
       #  CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
