@@ -173,9 +173,11 @@ class CAR(Platforms):
     ],
     GMCarSpecs(mass=2450, wheelbase=3.75, steerRatio=16.3, tireStiffnessFactor=1.0),
   )
+  # Now EQUINOX spec is to be CT6-2019 spec !!! by yimidi-kr 2025.05.23
   CHEVROLET_EQUINOX = GMPlatformConfig(
     [GMCarDocs("Chevrolet Equinox 2019-22")],
-    GMCarSpecs(mass=1588, wheelbase=2.72, steerRatio=14.4, centerToFrontRatio=0.4),
+    # GMCarSpecs(mass=1588, wheelbase=2.72, steerRatio=14.4, centerToFrontRatio=0.4),
+    GMCarSpecs(mass=1736, wheelbase=3.11, steerRatio=17.7, centerToFrontRatio=0.4),
   )
   CHEVROLET_TRAILBLAZER = GMPlatformConfig(
     [GMCarDocs("Chevrolet Trailblazer 2021-22")],
