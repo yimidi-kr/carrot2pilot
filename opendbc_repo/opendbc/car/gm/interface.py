@@ -214,26 +214,28 @@ class CarInterface(CarInterfaceBase):
         ret.lateralTuning.pid.kf = 1.
 
     elif candidate == CAR.CADILLAC_CT6_ACC:
-      ret.steerActuatorDelay = 0.3
-      ret.longitudinalTuning.kpBP = [0.]
-      ret.longitudinalTuning.kpV = [1.0]
-      ret.longitudinalTuning.kiBP = [0.]
-      ret.longitudinalTuning.kiV = [.3]
-      ret.longitudinalTuning.kf = 1.0
-      ret.stoppingDecelRate = 0.2 # brake_travel/s while trying to stop
-      ret.stopAccel = -0.5
-      ret.startingState = True
-      ret.startAccel = 1.5
+      ret.steerActuatorDelay = 0.2
+      CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)      
+      #ret.steerActuatorDelay = 0.3
+      #ret.longitudinalTuning.kpBP = [0.]
+      #ret.longitudinalTuning.kpV = [1.0]
+      #ret.longitudinalTuning.kiBP = [0.]
+      #ret.longitudinalTuning.kiV = [.3]
+      #ret.longitudinalTuning.kf = 1.0
+      #ret.stoppingDecelRate = 0.2 # brake_travel/s while trying to stop
+      #ret.stopAccel = -0.5
+      #ret.startingState = True
+      #ret.startAccel = 1.5
 
-      useTorque = Params().get_bool("LateralTorqueCustom")
-      if useTorque:
-        CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
-      else:
-        ret.lateralTuning.pid.kpBP = [0., 40.]
-        ret.lateralTuning.pid.kpV = [0., 0.17]
-        ret.lateralTuning.pid.kiBP = [0.]
-        ret.lateralTuning.pid.kiV = [0.]
-        ret.lateralTuning.pid.kf = 1.
+      #useTorque = Params().get_bool("LateralTorqueCustom")
+      #if useTorque:
+      #  CarInterfaceBase.configure_torque_tune(candidate, ret.lateralTuning)
+      #else:
+      #  ret.lateralTuning.pid.kpBP = [0., 40.]
+      #  ret.lateralTuning.pid.kpV = [0., 0.17]
+      #  ret.lateralTuning.pid.kiBP = [0.]
+      #  ret.lateralTuning.pid.kiV = [0.]
+      #  ret.lateralTuning.pid.kf = 1.
 
     elif candidate == CAR.GMC_ACADIA:
       ret.minEnableSpeed = -1.  # engage speed is decided by pcm
